@@ -11,27 +11,24 @@
     <header class="header">
         <h1>Rock Paper Scissors Game</h1>
     </header>
-    <div class="container">
-        <div class="score-container">
-            <span class="user">YOU</span>
-            <span id="score">0 - 0</span>
-            <span class="com">COMP</span>
+    
+        <div class="selections">
+            <button class="selections" data-selection="rock">👊</button>
+            <button class="selections" data-selection="paper">🤚</button>
+            <button class="selections" data-selection="scissors">✌</button>
         </div>
-        <div class="buttons">
-            <button class="bn" onclick="" value="rock"><img src="rock.png"></button>
-            <button class="bn" onclick="" value="paper"><img src="paper.png"></button>
-            <button class="bn" onclick="" value="scissors"><img src="scissors.png"></button>
-        </div>
-        <div class="challenge">
-            <div id="you">
-                <div id="yourObject"></div>
+        <div class="results">
+            <div>
+                You
+                <span class="result-score">0</span>
             </div>
-            <div id="result"></div>
-            <div id="com">
-                <div id="comObject"></div>
+            <div>
+                Computer
+                <span class="result-score">0</span>
             </div>
-        </div>
-        </div>
+            <!--<div class="result-selection winner">👊</div>
+            <div class="result-selection">✌</div>-->
     </div>
+    <script src="main.js"></script>
 </body>
 </html>
