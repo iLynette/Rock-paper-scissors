@@ -1,4 +1,5 @@
 const selectionButtons = document.querySelectorAll('[data-selection]')
+const finalColumn = document.querySelector('[data-final-column]')
 const SELECTIONS = [
     {
         name: 'rock',
@@ -26,6 +27,9 @@ selectionButtons.forEach(selectionButton => {
 function makeSelection(selection){
     const computerSelection = randomSelection()
     console.log(computerSelection)
+}
+function isWinner(selection, opponentSelection){
+    return selection.beats === opponentSelection.name
 }
 function randomSelection() {
     const randomIndex = Math.floor(Math.random() * SELECTIONS.length)
