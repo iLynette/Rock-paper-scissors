@@ -1,37 +1,55 @@
-const selectionButtons = document.querySelectorAll('[data-selection]')
-const finalColumn = document.querySelector('[data-final-column]')
-const SELECTIONS = [
-    {
-        name: 'rock',
-        emoji: '👊',
-        beats: 'paper'
-    },
-    {
-        name: 'paper',
-        emoji: '🤚',
-        beats: 'scissors'
-    },
-    {
-        name: 'scissors',
-        emoji: '✌',
-        beats: 'paper'
+const gameSelection =['rock', 'paper', 'scissors']
+
+function computerPlay() {
+    let compChoice = gameSelection[Math.floor(Math.random()* gameSelection.length)]
+    return compChoice
+}
+function userPlay() {
+    let input = prompt('rock, paper, scissors')
+    let userSelection= input.trim().toLowerCase()
+    return input
+}
+
+function makeSelection(playerSelection, computerSelection) {
+    if (
+        (playerSelection == "rock" && computerSelection === "scissors") ||
+        (playerSelection == "paper" && computerSelection === "rock") ||
+        (playerSelection == "scissors" && computerSelection === "paper")
+    ) {
+        return 'Win'
+    } else if (
+        (playerSelection == "rock" && computerSelection === "paper") ||
+        (playerSelection == "paper" && computerSelection === "scissors") ||
+        (playerSelection == "scissors" && computerSelection === "scissors")
+    ){
+        return 'Lose'
+    } else {
+        return 'Tie'
     }
-]
-selectionButtons.forEach(selectionButton => {
-    selectionButton.addEventListener('click', e => {
-        const selectionName = selectionButton.dataset.selection
-        const selection = SELECTIONS.find(selection => selection.name === selectionName)
-        makeSelection(selectionName)
-    })
-})
-function makeSelection(selection){
-    const computerSelection = randomSelection()
-    console.log(computerSelection)
 }
-function isWinner(selection, opponentSelection){
-    return selection.beats === opponentSelection.name
-}
-function randomSelection() {
-    const randomIndex = Math.floor(Math.random() * SELECTIONS.length)
-    return SELECTIONS[randomIndex]
-}
+function game() {
+    let playerScore = 0
+    let computerScore = 0
+
+    for (let i = 0; i <= 4; i++) {
+        let playerSelection = userPlay()
+        let computerSelection = computerPlay()
+        console.log(`You selected: ${playerSelection}`)
+        console.log(`Computer selected: ${computerSelection}`)
+        let resultOutput = makeSelection(playerSelection, computerSelection)
+
+        if (resultOutput.includes("win", 3)) {
+            playScore++
+          } else {
+            computerScore++
+        }
+    }
+    if (playerScore < computerScore) {
+        console.log("Ooopss !!! You have lost!!")
+      } else if (playerScore > computerScore) {
+        console.log("Hurray !!! You have won!!")
+      } else {
+        console.log("There has been a tie")
+      }
+    }
+    game()
