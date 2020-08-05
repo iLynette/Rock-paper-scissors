@@ -31,7 +31,8 @@ function game() {
     let playerScore = 0
     let computerScore = 0
 
-    for (let i = 0; i <= 4; i++) {
+    var i;
+    for (let i = 0; i < 4; i++) {
         let playerSelection = userPlay()
         let computerSelection = computerPlay()
         console.log(`You selected: ${playerSelection}`)
@@ -45,11 +46,11 @@ function game() {
         }
     }
     if (playerScore < computerScore) {
-        console.log("Ooopss !!! You have lost!!")
+        console.log("Oops !!! You lost!!")
       } else if (playerScore > computerScore) {
-        console.log("Hurray !!! You have won!!")
+        console.log("Hurray !!! You won!!")
       } else {
-        console.log("There has been a tie")
+        console.log("Its a tie")
       }
     }
     game()
