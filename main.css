@@ -6,6 +6,10 @@ body {
 }
 h1{
     font-size: 2rem;
-    background-color: blanchedalmond;
-    
+    background-color: blanchedalmond;   
 }
+.score {
+    color: beige;
+    font-size: 2rem;
+}
+
